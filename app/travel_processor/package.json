@@ -1,5 +1,6 @@
 {
   "name": "travel-processor",
+  "version": "1.0.0",
   "private": true,
   "main": "webapp/index.html",
   "engines": {
@@ -20,7 +21,7 @@
   ],
   "devDependencies": {
     "@ui5/cli": "^2.14.4",
-    "cross-spawn": "^7.0.3",
+    "cross-spawn": "^7.0.6",
     "http-proxy": "^1.18.1",
     "karma": "^6.3.14",
     "karma-chrome-launcher": "^3.1.0",

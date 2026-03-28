@@ -9,6 +9,14 @@ service TravelService @(path:'/processor') {
     { grant: ['*'], to: 'admin'}
   ])
 
+//
+// Function import used in Controller Extension 'PassengerOPExtend.js' to calculate booking data 
+function getBookingDataOfPassenger(CustomerID: String) returns my.BookingData;
+//
+
+//Sinleton
+  entity SupplementScope as projection on my.SupplementScope;
+
   // Travel: To avoid number formatting of the travel ID, make it a String
   entity Travel as projection on my.Travel {
     *,
@@ -37,6 +45,7 @@ service TravelService @(path:'/processor') {
     action createTravelByTemplate() returns Travel;
     action rejectTravel();
     action acceptTravel();
+    action deductDiscount(@(UI.ParameterDefaultValue : 5)percent: Percentage not null @mandatory ) returns Travel;
   };
 
   // Passenger: Add joined property 'FullName' and association 'to_Booking'
